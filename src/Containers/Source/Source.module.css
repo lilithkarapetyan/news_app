@@ -1,0 +1,6 @@
+@media(min-width: 600px){
+    .Source h2{
+        text-align: center;
+        padding: 20px 10px;
+    }
+}

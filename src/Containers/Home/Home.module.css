@@ -1,0 +1,6 @@
+@media(min-width: 600px){
+    .Home h2{
+        text-align: center;
+        padding: 20px 10px;
+    }
+}

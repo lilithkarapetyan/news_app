@@ -1,0 +1,51 @@
+.NewsListItem, .NewsListItem::before, .NewsListItem:active {
+    display: block;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: auto;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    color:black;
+    text-decoration: none;
+}
+.NewsListItem, .ImgContainer img {
+    width: 100%;
+}
+.NewsListItem div {
+    box-sizing: border-box;
+    padding: 20px;
+}
+.NewsListItem h3 {
+    margin: 0px;
+}
+.NewsListItem span {
+    color: #777;
+}
+
+@media(min-width: 600px) {
+    .NewsListItem {
+        display: block;
+        width: 80%!important;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        overflow: auto;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    .NewsListItem, .ImgContainer img {
+        width: 100%;
+    }
+    .NewsListItem div {
+        width: 50%;
+        float: left;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+    .NewsListItem h3 {
+        margin: 0px;
+    }
+    .NewsListItem span {
+        color: #777;
+    }
+}

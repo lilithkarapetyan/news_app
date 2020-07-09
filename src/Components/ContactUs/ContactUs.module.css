@@ -1,0 +1,10 @@
+.ContactUs span{
+    display: block;
+    font-size: 16px;
+    color: #70587C;
+    margin: 5px;
+    font-weight: bold;
+}
+.ContactUs span a{
+    color: #705870;
+}
