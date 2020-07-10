@@ -9,7 +9,7 @@ class Searchbar extends Component {
     onChange = (e) => {
         this.setState({
             value: e.target.value 
-        }, () => console.log(this.state.value))//this.props.onSearch(this.state.value))
+        }, () => this.props.onSearch(this.state.value))
     }
     render() {
         return (

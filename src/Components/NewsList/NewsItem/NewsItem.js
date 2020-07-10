@@ -3,7 +3,6 @@ import React from 'react';
 import classes from './NewsItem.module.css';
 
 const NewsItem = (props) => {
-    console.log()
     return (
         <a className={classes.NewsListItem} href={props.data.url} target="_blank" rel="noopener noreferrer">
             <div className={classes.ImgContainer}><img src={props.data.urlToImage} alt={props.data.title} /></div>

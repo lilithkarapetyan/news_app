@@ -5,10 +5,14 @@ import SideDrawer from '../../Components/Navigation/SideDrawer/SideDrawer';
 import { getSources } from '../../Fetch/News';
 import Modal from '../../Components/UI/Modal/Modal';
 import ContactUs from '../../Components/ContactUs/ContactUs';
+
+import SearchTextCtx from '../../Contexts/SearchTextCtx';
+
 class NavLayout extends Component {
     state = {
         showSideDrawer: false,
         showModal: false,
+        searchText: '',
         navItems: [{
             name: "Home",
             path: "/home"
@@ -45,27 +49,38 @@ class NavLayout extends Component {
         });
     }
 
+    onSearch = (inputTxt) => {
+        this.setState({ searchText: inputTxt })
+    }
+
     render() {
         return (
-            <div style={{ padding: "60px 20px" }}>
-                <Toolbar
-                    opened={this.sideDrawerToggleHandler}
-                    contactUsHandler={this.contactUsHandler}
-                    navItems={this.state.navItems} />
-                <SideDrawer
-                    navItems={this.state.navItems}
-                    open={this.state.showSideDrawer}
-                    closed={this.sideDrawerClosedHandler}
-                    contactUsHandler={this.contactUsHandler} />
-                <Modal
-                    show={this.state.showModal}
-                    clicked={this.contactUsHandler}>
-                    <ContactUs />
-                </Modal>
-                <main>
-                    {this.props.children}
-                </main>
-            </div>
+            <SearchTextCtx.Provider value={this.state.searchText}>
+                <div style={{ padding: "60px 20px" }}>
+                    <Toolbar
+                        opened={this.sideDrawerToggleHandler}
+                        contactUsHandler={this.contactUsHandler}
+                        navItems={this.state.navItems}
+                        onSearch={this.onSearch} />
+                    <SideDrawer
+                        navItems={this.state.navItems}
+                        open={this.state.showSideDrawer}
+                        closed={this.sideDrawerClosedHandler}
+                        contactUsHandler={this.contactUsHandler} />
+                    <Modal
+                        show={this.state.showModal}
+                        clicked={this.contactUsHandler}>
+                        <ContactUs />
+                    </Modal>
+                    <SearchTextCtx.Consumer>
+                        {(txt) => (
+                            <main>
+                                {this.props.children}
+                            </main>
+                        )}
+                    </SearchTextCtx.Consumer>
+                </div>
+            </SearchTextCtx.Provider>
         )
     }
 }

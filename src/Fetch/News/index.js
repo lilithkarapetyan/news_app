@@ -1,10 +1,11 @@
 import axios from './axios-news'
 
-export const getNews = async (sourceId) => {
+export const getNews = async (sourceId, searchTxt) => {
     try {
         const res = await axios.get("/everything", {
             params: {
-                sources: sourceId
+                sources: sourceId,
+                q: searchTxt || ''
             }
         });
         return res.data;
@@ -18,9 +19,13 @@ export const getNews = async (sourceId) => {
 }
 
 
-export const getTopNews = async () => {
+export const getTopNews = async (searchTxt) => {
     try {
-        const res = await axios.get("/top-headlines");
+        const res = await axios.get("/top-headlines", {
+            params: {
+                q: searchTxt || ''
+            }
+        });
         return res.data;
     }
     catch (e) {
@@ -35,7 +40,6 @@ export const getSources = async () => {
     try {
         const res = await axios.get("/sources");
         return res.data;
-        
     }
     catch (e) {
         return {

@@ -12,8 +12,8 @@ class App extends Component {
         <NavLayout>
           <Switch>
             <Route path="/sources/:id" component={Source} />
-            <Route path="/home" exact component={Home} />
-            <Route path="/" exact render={() => (
+            <Route path="/home" component={Home} />
+            <Route path="/" render={() => (
               <Redirect to="/home" />
             )} />
           </Switch>
