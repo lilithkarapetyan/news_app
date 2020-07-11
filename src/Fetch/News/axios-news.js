@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  // baseURL: 'http://newsapi.org/v2',
-  baseURL: 'https://arcane-castle-95125.herokuapp.com',
+  baseURL: 'http://newsapi.org/v2',
+  // baseURL: 'https://arcane-castle-95125.herokuapp.com',
   timeout: 10000
 });
 
